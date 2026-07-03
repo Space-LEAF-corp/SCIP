@@ -16,6 +16,10 @@ class ModeState:
     last_reason: str
 
 class ModeSupervisor:
+    """
+    Top-level flight mode state machine driven by DRI/CDT via SkipLogic.
+    """
+
     def __init__(self):
         self.skip_logic = SkipLogicController()
         self.state = ModeState(mode=FlightMode.NOMINAL, last_reason="Init")
