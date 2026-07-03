@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #090d12;
+  color: #d6e2f0;
+}
+.layout {
+  padding: 20px;
+}
+.viewer-placeholder {
+  height: 300px;
+  border: 1px dashed #6a88aa;
+  display: grid;
+  place-items: center;
+}
+````markdown name=README.md
+# SCIP-Orbit
+
+SCIP-Orbit is an aerospace-grade software scaffold for **orbital decay correction** of LEO satellites.
+
+## System Overview
+
+SCIP-Orbit integrates:
+- **Core risk analytics** (DRI, CDT/NRA, decay prediction)
+- **Guidance** (skip-logic drag shaping + lift window planning)
+- **Propulsion** (micro-burn delta-V injection)
+- **Telemetry protocol + packet codec**
+- **Safety/FDIR and contingencies**
+- **Simulation harness** with perturbation placeholders
+- **Mission-control dashboard** (React + CesiumJS)
+- **SOG-API v1.0** REST + WebSocket service
+
+## Operational Mode State Machine (ASCII)
+
+```text
+           +--------+
+           |  SAFE  |
+           +---+----+
+               |
+               v
+          +----+-----+
+          | STANDBY  |
+          +----+-----+
+               |
+               v
+          +----+-----+    DRI>=60    +-----------+
+          | MONITOR  +-------------->+ GUIDANCE  |
+          +----+-----+               +-----+-----+
+               ^                           |
+               |                           | burnWindowOpen
+               |                           v
+          +----+---------------------+ +---+------------+
+          |   PROPULSION_EXEC        | | CONTINGENCY    |
+          +--------------------------+ +-----------------+
