@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "packet": "command",
+  "commands": [
+    { "name": "ENTER_SAFE", "args": [] },
+    { "name": "RUN_GUIDANCE", "args": ["windowId"] },
+    { "name": "EXEC_BURN", "args": ["deltaVms"] },
+    { "name": "RESET_FDIR", "args": ["faultCode"] }
+  ]
+}
