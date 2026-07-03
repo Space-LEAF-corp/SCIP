@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "packet": "telemetry",
+  "fields": [
+    { "name": "ts", "type": "uint64" },
+    { "name": "mode", "type": "enum" },
+    { "name": "altitudeKm", "type": "float32" },
+    { "name": "dri", "type": "float32" },
+    { "name": "faultFlags", "type": "string[]" }
+  ]
+}
