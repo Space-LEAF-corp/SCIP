@@ -1,0 +1,18 @@
+openapi: 3.0.3
+info:
+  title: SOG-API
+  version: "1.0"
+paths:
+  /api/v1/health:
+    get:
+      responses:
+        "200":
+          description: API health
+  /api/v1/dri:
+    post:
+      summary: Compute Decay Risk Index
+      requestBody:
+        required: true
+      responses:
+        "200":
+          description: DRI response
