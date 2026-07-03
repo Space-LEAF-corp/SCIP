@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOG WebSocket Message",
+  "type": "object",
+  "properties": {
+    "type": { "type": "string" },
+    "ts": { "type": "number" },
+    "payload": { "type": "object" }
+  },
+  "required": ["type", "ts", "payload"]
+}
